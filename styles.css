@@ -1,0 +1,608 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #fdfdfd;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* Navbar */
+.navbar {
+    background: #004d40;
+    color: #fff;
+    padding: 0.8rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.4s ease;
+}
+
+.navbar.hide {
+    transform: translateY(-100%);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 62px;
+    /* adjust size if needed */
+    height: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #ffd54f;
+}
+
+/* Mobile Menu Button */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 2rem 0;
+    background: #e0f2f1;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: #004d40;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Content */
+.content {
+    margin: 2rem 0;
+    font-size: 1.05rem;
+    color: #444;
+}
+
+.content strong {
+    color: #004d40;
+}
+
+/* Actions */
+.actions {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.actions h2 {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    color: #004d40;
+}
+
+.actions button {
+    margin: 0.5rem;
+    padding: 0.9rem 1.6rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #004d40;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.actions button i {
+    font-size: 1.2rem;
+}
+
+
+.actions button:hover {
+    background: #00695c;
+    transform: translateY(-2px);
+}
+
+
+.images-stack {
+    background-color: #e0f2f1;
+    border-radius: 20px;
+    margin: 0;
+    padding: 3rem 0;
+    line-height: 0;
+    text-align: center;
+    /* centers images on desktop when smaller */
+}
+
+.images-stack img {
+    display: block;
+    width: 100%;
+    padding: 0 1rem;
+    height: auto;
+}
+
+/* On larger screens, make images smaller */
+@media (min-width: 1024px) {
+    .images-stack img {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+.listen-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: #f9f9f9;
+    border-radius: 20px;
+    margin: 2rem 0;
+}
+
+.listen-section h2 {
+    margin-bottom: 1.5rem;
+    color: #004d40;
+}
+
+.listen-p {
+    font-size: 1.05rem;
+    text-align: left;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+}
+
+.audio-player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    background: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 650px;
+    margin: auto;
+}
+
+
+#play-pause {
+    background: #004d40;
+    color: #fff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+#play-pause:hover {
+    background: #00695c;
+}
+
+.progress-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#progress {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 6px;
+    border-radius: 4px;
+    background: #ccc;
+    outline: none;
+    cursor: pointer;
+}
+
+#progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #004d40;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#progress::-webkit-slider-thumb:hover {
+    background: #00695c;
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+#volume {
+    width: 80px;
+    -webkit-appearance: none;
+    height: 6px;
+    border-radius: 4px;
+    background: #ccc;
+    outline: none;
+    cursor: pointer;
+}
+
+#volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #004d40;
+    cursor: pointer;
+}
+
+.download-audio {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.download-audio a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #004d40;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.download-audio a:hover {
+    background: #00695c;
+    transform: translateY(-2px);
+}
+
+.download-audio a i {
+    font-size: 16px;
+}
+
+/* 🎯 Responsive design */
+@media (max-width: 768px) {
+    .controls {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    #play-pause {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+
+    .listen-p {
+        font-size: 0.95rem;
+        padding: 0 0.75rem;
+    }
+
+    .progress-container {
+        flex: 1 1 100%;
+        order: 3;
+        justify-content: center;
+    }
+
+    #progress {
+        width: 100%;
+    }
+
+    .time {
+        font-size: 12px;
+    }
+
+    .volume-container {
+        display: none;
+    }
+
+    #volume {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .audio-player {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    #play-pause {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .time {
+        font-size: 11px;
+    }
+
+    #volume {
+        width: 70%;
+    }
+}
+
+
+/* Surah Info Section */
+.surah-info-section {
+    padding: 40px 20px;
+    background-color: #e0f2f1;
+    border-radius: 20px;
+}
+
+.surah-info-section h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 900;
+    color: #004d40;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    /* enables scroll on small screens */
+}
+
+.surah-info-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.surah-info-table th,
+.surah-info-table td {
+    padding: 14px 18px;
+    text-align: left;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.surah-info-table th {
+    background: #004d40;
+    color: #fff;
+    width: 35%;
+    font-weight: 700;
+}
+
+.surah-info-table td {
+    color: #333;
+}
+
+.surah-info-table tr:last-child th,
+.surah-info-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .surah-info-section h2 {
+        font-size: 20px;
+    }
+
+    .surah-info-table th,
+    .surah-info-table td {
+        font-size: 14px;
+        padding: 12px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .surah-info-section h2 {
+        font-size: 18px;
+    }
+
+    .surah-info-table th,
+    .surah-info-table td {
+        font-size: 13px;
+        padding: 7px 12px;
+    }
+}
+
+
+/* FAQ Section */
+.faq-section {
+    margin: 2rem 0;
+    border-radius: 20px;
+    padding: 40px 20px;
+    background: #f9f9f9;
+}
+
+.faq-section h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 25px;
+    font-weight: 900;
+    color: #004d40;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    /* gap between FAQ items */
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    background: #f1fffe;
+    border: none;
+    text-align: left;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    color: #004d40;
+    transition: color 0.3s ease;
+}
+
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 15px;
+    /* keep it always to the far right */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* When active (opened), turn + into × */
+.faq-item.active .faq-question::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+
+.faq-question:hover {
+    color: #00796b;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 15px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    /* enough for most answers */
+    padding: 10px 15px 15px;
+}
+
+.faq-answer p {
+    margin: 0;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .faq-section h2 {
+        font-size: 20px;
+    }
+
+    .faq-question {
+        font-size: 15px;
+    }
+
+    .faq-answer p {
+        font-size: 14px;
+    }
+
+    .faq-question {
+        font-size: 15px;
+        padding: 12px 40px 12px 12px;
+        /* still leave space for icon */
+    }
+
+    .faq-question::after {
+        font-size: 18px;
+    }
+}
+
+
+
+/* Footer */
+footer {
+    background: #004d40;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 85px;
+        right: 0;
+        width: 100%;
+        background: #004d40;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        /* Hide by default */
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s ease, opacity 0.4s ease;
+    }
+
+    .nav-links.active {
+        max-height: 500px;
+        opacity: 1;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
