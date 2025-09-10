@@ -117,3 +117,6 @@ document.querySelectorAll('.faq-question').forEach(question => {
     faqItem.classList.toggle('active');
   });
 });
+
+
+

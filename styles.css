@@ -66,7 +66,7 @@ body {
 }
 
 .nav-links li a:hover {
-    color: #ffd54f;
+    color: #00c853;
 }
 
 /* Mobile Menu Button */
@@ -562,15 +562,75 @@ header p {
 
 
 
-/* Footer */
-footer {
-    background: #004d40;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
-    font-size: 0.9rem;
+.footer {
+  background: #004d40; /* same theme as navbar */
+  color: #fff;
+  padding: 40px 20px;
+  margin-top: 40px;
 }
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.footer-logo img {
+  height: 55px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: #00c853;
+}
+
+.footer-copy {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    gap: 15px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-logo {
+    font-size: 16px;
+  }
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -606,3 +666,4 @@ footer {
         display: block;
     }
 }
+
