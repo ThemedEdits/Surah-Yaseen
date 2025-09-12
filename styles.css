@@ -563,72 +563,73 @@ header p {
 
 
 .footer {
-  background: #004d40; /* same theme as navbar */
-  color: #fff;
-  padding: 40px 20px;
-  margin-top: 40px;
+    background: #004d40;
+    /* same theme as navbar */
+    color: #fff;
+    padding: 40px 20px;
+    margin-top: 40px;
 }
 
 .footer-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
 }
 
 .footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 18px;
-  font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .footer-logo img {
-  height: 55px;
+    height: 55px;
 }
 
 .footer-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-links li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .footer-links li a:hover {
-  color: #00c853;
+    color: #00c853;
 }
 
 .footer-copy {
-  font-size: 14px;
-  opacity: 0.8;
+    font-size: 14px;
+    opacity: 0.8;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .footer-container {
-    gap: 15px;
-  }
+    .footer-container {
+        gap: 15px;
+    }
 
-  .footer-links {
-    flex-direction: column;
-    gap: 10px;
-  }
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-  .footer-logo {
-    font-size: 16px;
-  }
+    .footer-logo {
+        font-size: 16px;
+    }
 }
 
 
@@ -667,3 +668,189 @@ header p {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contact-main {
+    width: 100%;
+    max-width: 600px;
+    background: #e0f2f1;
+    border-radius: 20px;
+    padding: 40px;
+    margin: 2rem auto ;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+label {
+    font-weight: 500;
+    color: #34495e;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #004d40;
+    background-color: #fff;
+}
+
+textarea {
+    min-height: 140px;
+    resize: none;
+}
+
+input:-webkit-autofill{
+     -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.checkbox-container input {
+    width: auto;
+}
+
+#send-btn {
+    background: #004d40;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+#send-btn:hover {
+    background: #00695c;
+}
+
+#send-btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+}
+
+#form-status {
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Toast notification */
+.toast {
+    position: fixed;
+    top: 110px;
+    right: 20px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateX(100vw);
+    transition: transform 0.4s ease;
+    max-width: 350px;
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast.success {
+    background: #004d40;
+}
+
+.toast.error {
+    background: #e74c3c;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .contact-main {
+        padding: 30px 25px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    input,
+    textarea {
+        padding: 12px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-main {
+        padding: 25px 20px;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    #contact-form {
+        gap: 16px;
+    }
+
+    .toast {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}

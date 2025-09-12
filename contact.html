@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact Us - Surah Yaseen</title>
+
+  <!-- Basic SEO -->
+  <meta name="description"
+    content="Read Surah Yaseen online with proper Tajweed, listen to recitation by Qari Tareq Mohammed, and download the Surah Yaseen PDF for free.">
+  <meta name="keywords"
+    content="Surah Yaseen, Surah Yaseen PDF, Read Surah Yaseen, Listen Surah Yaseen, Surah Yaseen online">
+  <meta name="author" content="Surah Yaseen Resources">
+
+  <!-- Open Graph (for Facebook, LinkedIn, etc.) -->
+  <meta property="og:title" content="Surah Yaseen Read Online – Download PDF">
+  <meta property="og:description"
+    content="Read Surah Yaseen online with proper Tajweed, listen to recitation by Qari Tareq Mohammed, and download the Surah Yaseen PDF for free.">
+  <meta property="og:image" content="https://surah-yaseen.vercel.app/images/mainn-01.png">
+  <meta property="og:url" content="https://surah-yaseen.vercel.app">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/images/main.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="https://surah-yaseen.vercel.app/images/main.svg">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <a href="#">
+          <img src="images/main.svg" alt="Quranic Logo">
+        </a>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">Read</a></li>
+        <li><a href="index.html">Listen</a></li>
+        <li><a href="index.html">Download</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1 class="main-h1">Contact Us</h1>
+      <p>Feel free to reach out to us</p>
+    </div>
+  </header>
+
+
+  <main class="contact-main">
+    <form id="contact-form" class="contact-form" autocomplete="off">
+            <label for="from_name">Full name *</label>
+            <input type="text" name="from_name" id="from_name" required autocomplete="name" />
+
+            <label for="reply_to">Email *</label>
+            <input type="email" name="reply_to" id="reply_to" required autocomplete="email" />
+
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" name="phone" id="phone" autocomplete="tel" />
+
+            <label for="subject">Subject</label>
+            <input type="text" name="subject" id="subject" autocomplete="off" />
+
+            <label for="message">Message *</label>
+            <textarea name="message" id="message" required autocomplete="off"></textarea>
+
+            <!-- honeypot (bots will fill) -->
+            <div style="position:absolute;left:-9999px;">
+                <label>Leave blank</label>
+                <input name="website" type="text" />
+            </div>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="consent" />
+                <label for="consent" style="display: inline; margin: 0;">I agree to be contacted.</label>
+            </div>
+
+            <button id="send-btn" type="submit">Send Message</button>
+            <div id="form-status" role="status" aria-live="polite"></div>
+        </form>
+    </main>
+
+    <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+  </main>
+
+
+
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-logo">
+        <img src="images/main.svg" alt="Logo">
+        <span>Surah Yaseen Resources</span>
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">Read</a></li>
+        <li><a href="index.html">Listen</a></li>
+        <li><a href="index.html">Download</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <p class="footer-copy">&copy; 2025 Surah Yaseen Resources. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    
+ document.addEventListener("DOMContentLoaded", () => {
+            emailjs.init("dlTAzaXJt9czMLHsa"); // your public key
+
+            const form = document.getElementById("contact-form");
+            const statusEl = document.getElementById("form-status");
+            const sendBtn = document.getElementById("send-btn");
+            const toast = document.getElementById("toast");
+
+            function showToast(message, type) {
+                toast.textContent = message;
+                toast.className = `toast ${type}`;
+                toast.classList.add('show');
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 5000);
+            }
+
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                statusEl.textContent = "";
+                statusEl.style.color = ""; // reset color
+
+                // client-side validation
+                const name = form.from_name.value.trim();
+                const email = form.reply_to.value.trim();
+                const message = form.message.value.trim();
+                const consent = document.getElementById("consent").checked;
+                const honeypot = form.website && form.website.value ? form.website.value.trim() : "";
+
+                if (honeypot !== "") return; // bot
+
+                if (name.length < 2) {
+                    showToast("Enter your full name.", "error");
+                    form.from_name.focus();
+                    return;
+                }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showToast("Enter a valid email.", "error");
+                    form.reply_to.focus();
+                    return;
+                }
+                if (message.length < 10) {
+                    showToast("Message must be at least 10 characters.", "error");
+                    form.message.focus();
+                    return;
+                }
+                if (!consent) {
+                    showToast("Please agree to be contacted.", "error");
+                    return;
+                }
+
+                // disable button while sending
+                sendBtn.disabled = true;
+                sendBtn.textContent = "Sending...";
+
+                try {
+                    const result = await emailjs.sendForm(
+                        "service_surah_yaseen",   // your service ID
+                        "template_surah_yaseen",  // your template ID
+                        "#contact-form"
+                    );
+
+                    console.log("EmailJS result:", result);
+
+                    if (result.status === 200) {
+                        showToast("Message sent successfully! Thank you.", "success");
+                        form.reset();
+                    } else {
+                        showToast("Something went wrong. Please try again.", "error");
+                    }
+                } catch (err) {
+                    console.error("EmailJS error:", err);
+                    showToast("Failed to send message. Please try again later.", "error");
+                } finally {
+                    sendBtn.disabled = false;
+                    sendBtn.textContent = "Send Message";
+                }
+            });
+        });
+
+  </script>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
