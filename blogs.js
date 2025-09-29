@@ -8,7 +8,7 @@ const blogsData = [
     date: "2024-03-12",
     readTime: "6 min",
     views: "1.8K",
-    image: "/images/main.svg"
+    image: "/images/related-blogs-image-01.jpg"
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const blogsData = [
     date: "2024-03-10",
     readTime: "12 min",
     views: "3.2K",
-    image: "/images/main.svg"
+    image: "/images/related-blogs-image-01.jpg"
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const blogsData = [
     date: "2024-03-08",
     readTime: "7 min",
     views: "2.1K",
-    image: "/images/main.svg"
+    image: "/images/related-blogs-image-01.jpg"
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const blogsData = [
     date: "2024-03-05",
     readTime: "5 min",
     views: "4.5K",
-    image: "/images/main.svg"
+    image: "/images/related-blogs-image-01.jpg"
   },
   {
     id: 5,
@@ -48,7 +48,7 @@ const blogsData = [
     date: "2024-03-03",
     readTime: "9 min",
     views: "2.8K",
-    image: "/images/main.svg"
+    image: "/images/related-blogs-image-01.jpg"
   },
   {
     id: 6,
@@ -58,7 +58,7 @@ const blogsData = [
     date: "2024-03-01",
     readTime: "8 min",
     views: "3.7K",
-    image: "/images/main.svg"
+    image: "/images/related-blogs-image-01.jpg"
   },
   {
     id: 7,
@@ -68,7 +68,7 @@ const blogsData = [
     date: "2024-02-28",
     readTime: "11 min",
     views: "2.9K",
-    image: "/images/main.svg"
+    image: "/images/related-blogs-image-01.jpg"
   },
   {
     id: 8,
@@ -78,7 +78,7 @@ const blogsData = [
     date: "2024-02-25",
     readTime: "6 min",
     views: "1.5K",
-    image: "/images/main.svg"
+    image: "/images/related-blogs-image-01.jpg"
   }
 ];
 
@@ -97,7 +97,6 @@ let filteredBlogs = [...blogsData];
 document.addEventListener('DOMContentLoaded', function() {
   loadBlogs();
   setupEventListeners();
-  initializeMobileMenu();
 });
 
 // Setup event listeners
@@ -106,26 +105,6 @@ function setupEventListeners() {
   searchInput.addEventListener('input', handleSearch);
 }
 
-// Mobile menu functionality
-function initializeMobileMenu() {
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav-menu');
-
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking on links
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-      });
-    });
-  }
-}
 
 // Load initial blogs
 function loadBlogs() {
@@ -201,7 +180,7 @@ function createBlogCard(blog) {
           <span><i class="far fa-clock"></i> ${blog.readTime}</span>
           <span><i class="far fa-eye"></i> ${blog.views}</span>
         </div>
-        <a href="blog-single.html?id=${blog.id}" class="blog-card-link">
+        <a href="#" class="blog-card-link">
           Read More <i class="fas fa-arrow-right"></i>
         </a>
       </div>

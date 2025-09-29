@@ -308,26 +308,6 @@ function shareToPlatform(platform) {
   window.open(shareUrl, '_blank', 'width=600,height=400');
 }
 
-function initializeScrollToTop() {
-  const scrollBtn = document.getElementById('scrollToTop');
-  
-  if (!scrollBtn) return;
-  
-  window.addEventListener('scroll', function() {
-    if (window.pageYOffset > 300) {
-      scrollBtn.classList.add('visible');
-    } else {
-      scrollBtn.classList.remove('visible');
-    }
-  });
-  
-  scrollBtn.addEventListener('click', function() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-}
 
 function initializeReadingProgress() {
   // Optional: Add reading progress bar at top
