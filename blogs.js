@@ -1,4 +1,3 @@
-// Blogs data - In a real application, this would come from a backend API
 const blogsData = [
   {
     id: 1,
